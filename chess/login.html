@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chess Game Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://www.shutterstock.com/image-photo/chess-board-business-strategy-leadership-600nw-2474311727.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      width: 300px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .login-container button:hover {
+      background: #45a049;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #555;
+    }
+    
+    .chess-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="chess-icon">♔</div>
+    <h2>Chess Game Login</h2>
+    <form onsubmit="return loginUser(event)">
+      <input type="text" id="username" placeholder="Username" required><br>
+      <input type="password" id="password" placeholder="Password" required><br>
+      <button type="submit">Play Chess</button>
+    </form>
+    <div class="footer">Made by Saptarshi</div>
+  </div>
+
+  <script>
+    function loginUser(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Simple static check (you can replace this with backend call)
+      if(username === "anushka" && password === "1234") {
+        // Store login state in localStorage
+        localStorage.setItem('chessLoggedIn', 'true');
+        localStorage.setItem('chessUsername', username);
+        
+        // Redirect to chess game
+        window.location.href = "index.html";
+      } else {
+        alert("Invalid username or password. Try admin/1234");
+      }
+    }
+  </script>
+
+</body>
+</html>
